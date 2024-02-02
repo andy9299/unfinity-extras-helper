@@ -5,22 +5,22 @@ import StickerDisplay from "./stickers/StickerDisplay";
 
 const pagesData = [
   {
-    path: "/unfinity-extras-helper/",
+    path: "/",
     element: <Home />,
     title: "home"
   },
   {
-    path: "/unfinity-extras-helper/stickers",
+    path: "/stickers",
     element: <Stickers />,
     title: "stickers"
   },
   {
-    path: "/unfinity-extras-helper/stickers/picker/:num",
+    path: "/stickers/picker/:num",
     element: <StickerPicker />,
     title: "stickers-picker"
   },
   {
-    path: "/unfinity-extras-helper/stickers/display",
+    path: "/stickers/display",
     element: <StickerDisplay />,
     title: "stickers-display"
   },
