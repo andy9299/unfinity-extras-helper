@@ -3,7 +3,7 @@ import Router from "./pages/Router";
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/unfinity-extras-helper">
       <Router />
     </BrowserRouter>
   );

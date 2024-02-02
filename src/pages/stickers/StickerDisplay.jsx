@@ -6,7 +6,7 @@ const StickerDisplay = ({name, art, ability, stats, imageName}) => {
   <div className="flex flex-col sm:flex-row h-full w-full items-center content-center ">
     <div className="w-64 flex-none pb-2 ">
       <img 
-        src={`sticker-sheets/${imageName}`} 
+        src={`/sticker-sheets/${imageName}`} 
         alt={name}/>
     </div>
       <div className="p-2">
