@@ -10,6 +10,8 @@ const StickerPicker = () => {
   const [ localDeck, setLocalDeck ] = useLocalStorageState(`stickers-${num}`, '[]')
   const [ display, setDisplay ] = useState(false)
   const [ shuffled, setShuffled ] = useState([])
+  const [ currentlySelected, setCurrentlySelected ] 
+    = useState(JSON.parse(localDeck).sort(function(a, b) {return a - b;}))
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -43,12 +45,19 @@ const StickerPicker = () => {
   const handleImageClick = (e) => {
     e.target.classList.toggle("border-8")
     e.target.classList.toggle('border-green-700')
+    let index = currentlySelected.indexOf(e.target.id)
+    if (index === -1) {
+      setCurrentlySelected([...currentlySelected, e.target.id].sort(function(a, b) {return a - b;}))
+    }
+    else {
+      setCurrentlySelected(currentlySelected.filter((num) => num !== e.target.id))
+    }
   }
 
   return (
     <>
       {!display && <>
-        <nav class="flex flex-row text-white sticky top-0 select-none h-14 w-screen bg-slate-300" >
+        <nav class="flex flex-row text-white sticky top-0 select-none h-14" >
           <div className="flex items-center justify-center bg-red-700 hover:bg-red-800 flex-2 px-8"
           onClick={() => navigate(-1)}
           >
@@ -57,10 +66,10 @@ const StickerPicker = () => {
           <div className="flex items-center justify-center bg-slate-600 hover:bg-slate-700 flex-1"  
           onClick={handleButtonClick}
           >
-            {num === 3 ? "Pick 3 cards to use" : "Pick 10 then 3 will be selected randomly"}
+            {num === 3 ? "Pick 3 cards to use" : "Pick 10 then 3 will be selected randomly"} {`(Selected ${currentlySelected.length} Cards: [${currentlySelected}])`}
           </div>
         </nav>
-        <div className="pt-5 grid items-center justify-items-center gap-5 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+        <div className="pt-5 grid items-center justify-items-center gap-y-4 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {stickerData.map((sticker) => {
             let isSaved = JSON.parse(localDeck).includes(sticker.id.toString())
             return(
@@ -75,6 +84,7 @@ const StickerPicker = () => {
                   <img
                   key={`${sticker.id}-img`}
                   onClick={handleImageClick}
+                  id={sticker.id} 
                   src={`../../sticker-sheets/${sticker.imageName}`} 
                   alt={sticker.name} 
                   className={`w-96 ${isSaved ? "border-8 border-green-700"	: "" }`}/>      
@@ -86,7 +96,7 @@ const StickerPicker = () => {
       </>}
       {display && 
       <>
-        <nav class="bg-red-700 hover:bg-red-800 text-white sticky top-0 py-4 text-center select-none bg-slate-300" 
+        <nav class="bg-red-700 hover:bg-red-800 text-white sticky top-0 py-4 text-center select-none" 
         onClick={() => navigate(-1)}>
           Go Back
         </nav>
