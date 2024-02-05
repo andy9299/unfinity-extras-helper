@@ -6,7 +6,7 @@ const Router = () => {
     return <Route key={title} path={`/${path}`} element={element} />;
   });
   return (
-    <div className="bg-slate-300 h-full">
+    <div className="bg-slate-300 h-dvh">
     <Routes>
       {pageRoutes}
       <Route

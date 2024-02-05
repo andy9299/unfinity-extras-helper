@@ -11,7 +11,7 @@ const Stickers = () => {
       onClick={() => navigate(-1)}>
         Go Back
       </nav>
-      <div className="h-screen flex flex-col items-center content-center">
+      <div className=" h-[calc(100vh-56px)] flex flex-col items-center content-center">
         <button 
         id="3"
         class="m-auto h-32 w-64 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
