@@ -48,7 +48,7 @@ const StickerPicker = () => {
   return (
     <>
       {!display && <>
-        <nav class="flex flex-row text-white sticky top-0 select-none h-14 w-screen " >
+        <nav class="flex flex-row text-white sticky top-0 select-none h-14 w-screen bg-slate-300" >
           <div className="flex items-center justify-center bg-red-700 hover:bg-red-800 flex-2 px-8"
           onClick={() => navigate(-1)}
           >
@@ -86,7 +86,7 @@ const StickerPicker = () => {
       </>}
       {display && 
       <>
-        <nav class="bg-red-700 hover:bg-red-800 text-white sticky top-0 py-4 text-center select-none" 
+        <nav class="bg-red-700 hover:bg-red-800 text-white sticky top-0 py-4 text-center select-none bg-slate-300" 
         onClick={() => navigate(-1)}>
           Go Back
         </nav>
