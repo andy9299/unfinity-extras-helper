@@ -75,7 +75,7 @@ const StickerPicker = () => {
                   <img
                   key={`${sticker.id}-img`}
                   onClick={handleImageClick}
-                  src={`.../sticker-sheets/${sticker.imageName}`} 
+                  src={`../../sticker-sheets/${sticker.imageName}`} 
                   alt={sticker.name} 
                   className={`w-96 ${isSaved ? "border-8 border-green-700"	: "" }`}/>      
                 </label>
